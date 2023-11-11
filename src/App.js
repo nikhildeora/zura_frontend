@@ -1,15 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-import AllRoutes from './components/AllRoutes';
-import Logo from './components/Logo';
+import "./App.css";
+import AllRoutes from "./components/AllRoutes";
+import EmailLoginMadule from "./components/EmailLoginModel";
 
 function App() {
   return (
     <div className="App">
-       <Logo />  
-       <AllRoutes />
+      <AllRoutes />
+      {/* <EmailLoginMadule /> */}
     </div>
   );
 }
 
 export default App;
+

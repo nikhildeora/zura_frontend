@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Flex, Image, HStack } from "@chakra-ui/react";
+import { Flex, HStack } from "@chakra-ui/react";
 import { AiTwotoneSetting, AiOutlineBell } from "react-icons/ai";
 
 const StaticNavbar = () => {
