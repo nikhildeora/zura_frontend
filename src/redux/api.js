@@ -13,6 +13,13 @@ export function login_user_api(user_body) {
     .catch((err) =>{throw new Error(err.message)});
 }
 
+export function user_logged_in_api(){
+  return fetch(`${backend_api}/${localStorage.getItem("padcast_platform_cur_user")}`)
+  .then((res) => res.json())
+    .then((res) => res)
+    .catch((err) =>{throw new Error(err.message)});
+}
+
 export function create_new_project_api(project_body){
     return fetch(`${backend_api}/project/create_project`,{
         method : "POST",
@@ -27,12 +34,11 @@ export function create_new_project_api(project_body){
 }
 
 export function get_all_projects_api(){
-  return fetch(`${backend_api}/project`,{
+  return fetch(`${backend_api}/project/getall`,{
     headers : {
       "Authorization" : localStorage.getItem("padcast_platform_cur_user")
      }
   }).then((res)=>res.json())
   .then((res) => res)
   .catch((err) =>{throw new Error(err.message)});
-  
 }

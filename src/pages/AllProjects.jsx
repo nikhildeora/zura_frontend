@@ -38,7 +38,7 @@ const AllProjects = () => {
           </Heading>
           <CreateProjectButton />
         </Flex>
-        <Grid templateColumns={{ base : "repeat(1, 1fr)", sm : "repeat(1, 1fr)", md:  "repeat(3, 1fr)"}} columnGap={{base : "1rem" , sm : "4rem", md : "6rem"}} rowGap={"3rem"}>
+        <Grid templateColumns={{ base : "repeat(1, 1fr)", sm : "repeat(1, 1fr)", md:  "repeat(3, 1fr)"}} columnGap={{base : "1rem" , sm : "4rem", md : "6rem"}} rowGap={"3rem"} mt={4}>
            {all_projects.length>0 && all_projects?.map((project,i)=>{
              return (
                <EachProject key={i} project={project} />

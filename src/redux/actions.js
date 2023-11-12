@@ -1,5 +1,5 @@
-import { USER_LOGIN , CREATE_NEW_PROJECT, GET_ALL_PROJECTS} from "./actionTypes";
-import { create_new_project_api, get_all_projects_api, login_user_api } from "./api";
+import { USER_LOGIN , CREATE_NEW_PROJECT, GET_ALL_PROJECTS, USER_LOGGEDIN} from "./actionTypes";
+import { create_new_project_api, get_all_projects_api, login_user_api, user_logged_in_api } from "./api";
 
 export const funUserLogin = (user_body) => async (dispatch) => {
     try {
@@ -22,7 +22,17 @@ export const funCreateNewProject = (project_body) => async (dispatch) => {
 export const funGetAllProjects = () => async (dispatch) => {
     try {
         let all_projects = await get_all_projects_api();
+        console.log("all",all_projects);
         dispatch({type:GET_ALL_PROJECTS, payload:all_projects});
+    } catch (error) {
+        console.log("error",error);
+    }
+}
+
+export const funUserLoggedIn = () => async (dispatch) => {
+    try {
+        let current = await user_logged_in_api();
+        dispatch({type : USER_LOGGEDIN, payload : current})
     } catch (error) {
         console.log("error",error);
     }

@@ -28,8 +28,8 @@ const EachProject = ({ project }) => {
   };
 
   const navigateToUploadFilePage = () => {
-     navigate(`/uploadfile/${project._id}`);
-  }
+    navigate(`/uploadfile/${project._id}`);
+  };
 
   return (
     <Grid
@@ -38,22 +38,31 @@ const EachProject = ({ project }) => {
       borderRadius="lg"
       templateRows="repeat(2, 1fr)"
       templateColumns="repeat(5, 1fr)"
-      boxShadow={"rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px"}
-      columnGap={{base : 2, sm :3 , md :4}}
+      border={"1px solid #999999"}
+      boxShadow={"rgba(0, 0, 0, 0.15) 0px 3px 3px 0px"}
+      columnGap={{ base: 2, sm: 3, md: 4 }}
       onClick={navigateToUploadFilePage}
     >
-      <GridItem  
-          alignSelf={"center"}
-          rowSpan={2} colSpan={1}>
-        <Avatar size={{ base : "md" , sm :"lg" , md: "xl"}} borderRadius={"20%"} name={project.project_name} />
+      <GridItem alignSelf={"center"} rowSpan={2} colSpan={1}>
+        <Avatar
+          size={{ base: "md", sm: "lg", md: "xl" }}
+          borderRadius={"20%"}
+          name={project.project_name}
+        />
       </GridItem>
-      <GridItem colSpan={4} justifySelf={"flex-start"} alignSelf={"center"} >
-        <Text fontSize="xl" mt={3} textTransform={"capitalize"} fontWeight="bold" color={"var(--primary-color)"}>
+      <GridItem colSpan={4} justifySelf={"flex-start"} alignSelf={"center"}>
+        <Text
+          fontSize="xl"
+          mt={3}
+          textTransform={"capitalize"}
+          fontWeight="bold"
+          color={"var(--primary-color)"}
+        >
           {project.project_name}
         </Text>
       </GridItem>
       <GridItem colSpan={4} justifySelf={"flex-start"} alignSelf={"center"}>
-        <Text color="gray.500" >
+        <Text color="gray.500">
           Last update {calculateTimeAgo(project.last_edited)}
         </Text>
       </GridItem>

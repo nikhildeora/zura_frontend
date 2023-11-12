@@ -1,4 +1,4 @@
-import { USER_LOGIN, CREATE_NEW_PROJECT, GET_ALL_PROJECTS } from "./actionTypes";
+import { USER_LOGIN, CREATE_NEW_PROJECT, GET_ALL_PROJECTS, USER_LOGGEDIN } from "./actionTypes";
 
 const initState = {
     isAuthenticated : false,
@@ -16,7 +16,10 @@ export function Reducer(state=initState,action){
    switch(action.type){
     case USER_LOGIN : {
         localStorage.setItem("padcast_platform_cur_user", action.payload.current_user._id);
-        return {...state, isAuthenticated : true, current_user : {...action.payload.current_user, message : action.payload.message}};
+        return {...state, isAuthenticated : true, current_user : {...action.payload.current_user}, message : action.payload.message};
+    }
+    case USER_LOGGEDIN : {
+        return {...state, isAuthenticated : true, current_user : {...action.payload.current_user}, message : action.payload.message};
     }
     case CREATE_NEW_PROJECT : {
         return {...state, all_projects : [...action.payload.projects], message : action.payload.message};
