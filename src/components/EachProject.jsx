@@ -28,7 +28,7 @@ const EachProject = ({ project }) => {
   };
 
   const navigateToUploadFilePage = () => {
-    navigate(`/uploadfile/${project._id}`);
+    navigate(`/projectfileupload/${project._id}`);
   };
 
   return (

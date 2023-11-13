@@ -17,7 +17,9 @@ import {
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { AiFillPlusCircle } from "react-icons/ai";
-import { funCreateNewProject } from "../redux/actions";
+import {
+  funCreateNewProject,
+} from "../redux/actions";
 import { useNavigate } from "react-router-dom";
 
 export default function CreateProjectButton() {
@@ -39,10 +41,11 @@ export default function CreateProjectButton() {
       setIsInputInvalid(true);
       return;
     }
-    dispatch(funCreateNewProject({project_name:project}));
+    dispatch(funCreateNewProject({ project_name: project }));
     handleClose();
     navigate("/allprojects");
   };
+
 
   return (
     <>
@@ -82,7 +85,9 @@ export default function CreateProjectButton() {
           </ModalBody>
 
           <ModalFooter>
-            <Button color={"red"} onClick={handleClose} mr={3}>Cancel</Button>
+            <Button color={"red"} onClick={handleClose} mr={3}>
+              Cancel
+            </Button>
             <Button
               onClick={handleSubmit}
               bgColor={"var(--primary-color)"}

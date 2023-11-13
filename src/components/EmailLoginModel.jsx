@@ -13,7 +13,7 @@ import {
   } from '@chakra-ui/react'
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { funUserLogin } from '../redux/actions';
+import {funUserLogin } from '../redux/actions';
 
 function EmailLoginMadule() {
     const [isOpen , setIsOpen] = useState(false);

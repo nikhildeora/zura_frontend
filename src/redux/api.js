@@ -13,6 +13,19 @@ export function login_user_api(user_body) {
     .catch((err) =>{throw new Error(err.message)});
 }
 
+export function change_user_detail_api(user_id,user_body){
+  return fetch(`${backend_api}/change_user/${user_id}`, {
+    method: "PATCH",
+    body: JSON.stringify(user_body),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then((res) => res)
+    .catch((err) =>{throw new Error(err.message)});
+}
+
 export function user_logged_in_api(){
   return fetch(`${backend_api}/${localStorage.getItem("padcast_platform_cur_user")}`)
   .then((res) => res.json())
@@ -39,6 +52,46 @@ export function get_all_projects_api(){
       "Authorization" : localStorage.getItem("padcast_platform_cur_user")
      }
   }).then((res)=>res.json())
+  .then((res) => res)
+  .catch((err) =>{throw new Error(err.message)});
+}
+
+export function create_new_file_api(file_body){
+  return fetch(`${backend_api}/file/create_file`,{
+    method : "POST",
+    body : JSON.stringify(file_body),
+    headers : {
+        "Content-Type": "application/json",
+    }
+  }).then((res)=>res.json())
+  .then((res) => res)
+  .catch((err) =>{throw new Error(err.message)});
+}
+
+export function get_all_file_api(project_id){
+  return fetch(`${backend_api}/file/get_files/${project_id}`)
+  .then((res)=>res.json())
+  .then((res) => res)
+  .catch((err) =>{throw new Error(err.message)});
+}
+
+export function change_file_description_api(file_id,project_id,file_body){
+  return fetch(`${backend_api}/file/change_description/${file_id}/${project_id}`,{
+    method : "PATCH",
+    body : JSON.stringify(file_body),
+    headers : {
+        "Content-Type": "application/json",
+    }
+  }).then((res)=>res.json())
+  .then((res) => res)
+  .catch((err) =>{throw new Error(err.message)});
+}
+
+export function delete_file_api(file_id,project_id){
+  return fetch(`${backend_api}/file/delete_file/${file_id}/${project_id}`,{
+    method : "DELETE"
+  })
+  .then((res)=>res.json())
   .then((res) => res)
   .catch((err) =>{throw new Error(err.message)});
 }

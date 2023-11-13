@@ -21,8 +21,9 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { funCreateNewFile } from "../redux/actions";
 
-const UploadFromEach = ({ item }) => {
+const UploadFileFromEach = ({ project_id,item }) => {
   const { icon, text } = item;
   const [isOpen, setIsOpen] = useState(false);
   const [file, setFile] = useState("");
@@ -68,9 +69,15 @@ const UploadFromEach = ({ item }) => {
       setDescErrorMessage("value should be min 20 char");
       return;
     }
-    // dispatch(funCreateNewProject({ project_name: project }));
+
+    const new_file = {
+      file_name: file,
+      file_description: description,
+      project_id,
+    };
+    console.log("file",new_file);
+    dispatch(funCreateNewFile(new_file));
     handleClose();
-    // navigate("/allprojects");
   };
 
   return (
@@ -86,7 +93,7 @@ const UploadFromEach = ({ item }) => {
         cursor={"pointer"}
         transition={"all 0.5s linear"}
         _hover={{
-            transform : "scale(1.04)",
+          transform: "scale(1.04)",
         }}
         onClick={() => setIsOpen(true)}
       >
@@ -169,4 +176,4 @@ const UploadFromEach = ({ item }) => {
   );
 };
 
-export default UploadFromEach;
+export default UploadFileFromEach;
