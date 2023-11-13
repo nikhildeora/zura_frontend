@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 const EachProject = ({ project }) => {
   const navigate = useNavigate();
 
+  
   const calculateTimeAgo = (timestamp) => {
     const currentDate = new Date();
     const lastUpdatedDate = new Date(timestamp);
