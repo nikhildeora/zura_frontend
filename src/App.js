@@ -12,9 +12,9 @@ function App() {
   const toast = useToast();
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(funUserLoggedIn());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(funUserLoggedIn());
+  // }, []);
 
   useEffect(() => {
     if (error) {
@@ -39,7 +39,7 @@ function App() {
     <div className="App">
       {loading && <Loading />}
       <AllRoutes />
-      {/* <EmailLoginMadule /> */}
+      <EmailLoginMadule />
     </div>
   );
 }

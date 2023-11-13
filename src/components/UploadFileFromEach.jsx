@@ -41,7 +41,6 @@ const UploadFileFromEach = ({ project_id,item }) => {
     setIsFileInputInvalid(false);
     setIsDescInputInvalid(false);
     setDescErrorMessage("");
-    console.log("close");
   };
 
   const handleSubmit = () => {
@@ -75,7 +74,6 @@ const UploadFileFromEach = ({ project_id,item }) => {
       file_description: description,
       project_id,
     };
-    console.log("file",new_file);
     dispatch(funCreateNewFile(new_file));
     handleClose();
   };
